@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+<h1>Welcome {{ user.username }}</h1>
+
+{% if user.is_admin %}
+<h2>Посты</h2>
+<h2>Управление постами</h2>
+<button onclick="createPost()">Создать пост</button>
+<button onclick="editPost()">Изменить пост</button>
+<button onclick="deletePost()">Удалить посты</button>
+<script>
+    function createPost() {
+        alert('Functionality to create a post.');
+    }
+    function editPost() {
+        alert('Functionality to edit a post.');
+    }
+    function deletePost() {
+        alert('Functionality to delete a post.');
+    }
+</script>
+<a href="/logout">Logout</a>
+{% else %}
+<h2>User Panel</h2>
+<p>Вы можете только смотреть посты!.</p>
+{% endif %}
+
+<a href="/logout">Logout</a>
+<div class="posts-section">
+    {% if user.is_admin %}
+    <form action="/posts" method="post" class="create-post-form">
+        <input type="text" name="title" placeholder="Название поста" required>
+        <textarea name="content" placeholder="Содержание поста" required></textarea>
+        <button type="submit">Создать пост</button>
+    </form>
+    {% endif %}
+    <div class="posts-list">
+        {% for post in posts %}
+        <div class="post-card">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            {% if user.is_admin %}
+            <form action="/posts/{{ post.id }}" method="post">
+                <button type="submit">Удалить</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

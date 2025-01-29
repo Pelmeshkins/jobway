@@ -1,0 +1,86 @@
+body {
+    font-family: sans-serif;
+    background-color: rgba(224, 250, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.top-bar {
+    position: fixed; /* Закрепляем полоску вверху */
+    top: 0; /* Устанавливаем её на самый верх */
+    left: 0; /* Слева */
+    width: 100%;
+    height: 76px;
+    background: rgba(125, 201, 240, 1); /* Градиентный фон */
+    z-index: 1000;
+}
+
+.logo {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 150px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20.74px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    margin-bottom: 50px;
+    padding: 10px;
+    border: black;
+    border-radius: 1px;
+    font-size: 16px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-bottom: 15px;
+    font-size: 5px;
+}
+
+button {
+    background-color: rgba(39, 49, 111, 1);
+    color: #ffffff;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0000cc;
+}
+
+a {
+    margin-top: 10px;
+    text-align: center;
+    /*margin-left: 50px;*/
+}

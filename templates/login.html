@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles/login.css">
+    <script src="/static/script.js" defer></script>
+    <img class="logo" src="assets/logo1.svg" alt="Логотип" width="537">
+</head>
+<div class="top-bar"></div>
+<body>
+    <div class="form-container">
+        <form>
+            <label for="username">Логин</label>
+            <input type="text" id="username" name="username" placeholder="Введите логин" required>
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">Запомнить меня</label>
+            </div>
+
+            <button type="submit">Войти</button>
+            <a href="/register">Нет аккаунта? Регистрация</a>
+        </form>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const error = localStorage.getItem("error");
+        if (error) {
+            alert(error);
+            localStorage.removeItem("error");
+        }
+    });
+
+    async function handleForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+        });
+
+        if (response.ok) {
+            window.location.href = "/dashboard";
+        } else {
+            const data = await response.json();
+            localStorage.setItem("error", data.detail);
+            window.location.reload();
+        }
+    }
+</script>
+
+</body>
+</html>

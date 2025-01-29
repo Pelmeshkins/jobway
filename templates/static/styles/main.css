@@ -1,0 +1,26 @@
+/*body {*/
+/*    font-family: 'Arial', sans-serif;*/
+/*    background: rgba(224, 250, 255, 1);*/
+/*    color: rgba(224, 250, 255, 1);*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*}*/
+
+/*.top-bar {*/
+/*    position: fixed; !* Закрепляем полоску вверху *!*/
+/*    top: 0; !* Устанавливаем её на самый верх *!*/
+/*    left: 0; !* Слева *!*/
+/*    width: 100%; !* Полная ширина экрана *!*/
+/*    height: 76px; !* Высота полоски *!*/
+/*    background: rgba(125, 201, 240, 1); !* Градиентный фон *!*/
+/*    z-index: 1000; !* Чтобы полоска была поверх других элементов *!*/
+/*}*/
+
+/*.logo {*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*}*/
+
+
